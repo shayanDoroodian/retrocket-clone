@@ -1,8 +1,7 @@
 import Head from 'next/head';
 import { useState, useEffect } from 'react';
 import styles from '../styles/Home.module.css';
-import Card from '../components/card';
-import Loading from '../components/Loading';
+import Card from '../components/Card';
 
 export default function Home({ posts }) {
 	const [postsList, setPostsList] = useState(posts);
@@ -110,13 +109,10 @@ export default function Home({ posts }) {
 	);
 }
 export async function getStaticProps() {
-	// console.log(context);
-	// setLoading(true);
 	const res = await fetch(
 		`https://retrocket.github.io/retrocketeer-api/posts/1.json`
 	);
 	const posts = await res.json();
-	// setLoading(false);
 
 	return {
 		props: {
